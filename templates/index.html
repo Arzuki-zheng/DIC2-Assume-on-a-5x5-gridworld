@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Map RL Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load FontAwesome for arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Grid Map RL Dashboard</h1>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label for="grid-size">Enter grid size (5-9):</label>
+                <input type="number" id="grid-size" min="5" max="9" value="5">
+                <button id="btn-generate" class="primary-btn">Generate Grid</button>
+            </div>
+            
+            <div id="status-message" class="status-message">
+                Please generate a grid map to begin.
+            </div>
+            
+            <div class="actions" id="action-buttons" style="display: none;">
+                <button id="btn-eval-random" class="action-btn">Evaluate Random Policy (HW1-2)</button>
+                <button id="btn-value-iter" class="action-btn">Run Value Iteration (HW1-3)</button>
+                <button id="btn-reset" class="secondary-btn">Reset Grid state</button>
+            </div>
+        </div>
+
+        <div class="grid-container" id="grid-container">
+            <!-- Grid will be generated here -->
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><div class="legend-box" style="background-color: var(--color-start);"></div> Start</div>
+            <div class="legend-item"><div class="legend-box" style="background-color: var(--color-end);"></div> End</div>
+            <div class="legend-item"><div class="legend-box" style="background-color: var(--color-obstacle);"></div> Obstacle</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
